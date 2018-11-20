@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "live-server public/",
+    "build" : "babel src/app.js --out-file=public/scripts/app.js --presets=env,react -watch",
+    "server": "live-server public/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "live-server": "^1.2.0"
   }
 }

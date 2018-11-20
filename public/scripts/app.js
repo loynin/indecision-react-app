@@ -22,10 +22,39 @@ var IndecisionApp = function (_React$Component) {
         _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
         _this.onActionClick = _this.onActionClick.bind(_this);
         _this.handleAddOption = _this.handleAddOption.bind(_this);
+        _this.handleDeleteOneOption = _this.handleDeleteOneOption.bind(_this);
         return _this;
     }
 
     _createClass(IndecisionApp, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            try {
+                var data = localStorage.getItem('indecision.data');
+                var options = JSON.parse(data);
+                if (options) {
+                    this.setState(function () {
+                        return {
+                            options: options
+                        };
+                    });
+                }
+            } catch (e) {}
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProp, prevState) {
+            if (prevState.options.length !== this.state.options.length) {
+                var jsonData = JSON.stringify(this.state.options);
+                localStorage.setItem('indecision.data', jsonData);
+            }
+        }
+        // componentWillUnmount() {
+
+        // }
+
+
+    }, {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
             this.setState(function () {
@@ -56,6 +85,17 @@ var IndecisionApp = function (_React$Component) {
             });
         }
     }, {
+        key: 'handleDeleteOneOption',
+        value: function handleDeleteOneOption(selctedOption) {
+            this.setState(function (prevState) {
+                return {
+                    options: prevState.options.filter(function (option) {
+                        return option !== selctedOption;
+                    })
+                };
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var title = 'Indecision';
@@ -70,7 +110,8 @@ var IndecisionApp = function (_React$Component) {
                 }),
                 React.createElement(Options, {
                     options: this.state.options,
-                    handleDeleteOptions: this.handleDeleteOptions
+                    handleDeleteOptions: this.handleDeleteOptions,
+                    handleDeleteOneOption: this.handleDeleteOneOption
                 }),
                 React.createElement(AddOption, {
                     handleAddOption: this.handleAddOption
@@ -131,8 +172,17 @@ var Options = function Options(props) {
             { onClick: props.handleDeleteOptions },
             'Remove All'
         ),
+        props.options.length === 0 && React.createElement(
+            'p',
+            null,
+            'Please add an option'
+        ),
         props.options.map(function (option) {
-            return React.createElement(Option, { key: option, optionText: option });
+            return React.createElement(Option, {
+                key: option,
+                optionText: option,
+                handleDeleteOneOption: props.handleDeleteOneOption
+            });
         })
     );
 };
@@ -141,10 +191,15 @@ var Option = function Option(props) {
     return React.createElement(
         'div',
         null,
+        props.optionText,
         React.createElement(
-            'p',
-            null,
-            props.optionText
+            'button',
+            {
+                onClick: function onClick(e) {
+                    props.handleDeleteOneOption(props.optionText);
+                }
+            },
+            'remove'
         )
     );
 };
@@ -175,7 +230,9 @@ var AddOption = function (_React$Component2) {
                     error: error
                 };
             });
-            e.target.txtOptionText.value = '';
+            if (!error) {
+                e.target.txtOptionText.value = '';
+            }
         }
     }, {
         key: 'render',

@@ -33,15 +33,19 @@ Requirement:
 - NodeJS
 - npm
 - live-server
+- Webpack
+- Babel
+
+
 
 Experience the app at https://github.com/loynin/indecision-react-app.git
 
 To explore the codebase:
 
 - Clone or download the ZIP link
-- Using git clone app by `git clone https://github.com/loynin/indecision-react-app.git folder`
-- from `folder` run `npm install`
-- from `folder` run `live-server public`
+- Using git clone app by `git clone https://github.com/loynin/indecision-react-app.git indecision`
+- from `indecision` run `npm install`
+- from `indecision` run `npm run server`
 
 ### 4. Tools:
 ---------
