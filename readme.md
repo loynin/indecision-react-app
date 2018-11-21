@@ -1,4 +1,4 @@
-## Indecision APp
+## Indecision App
 ------------------------
 
 <!-- <kbd>
@@ -35,7 +35,7 @@ Requirement:
 - live-server
 - Webpack
 - Babel
-
+- Webpack Dev Server
 
 
 Experience the app at https://github.com/loynin/indecision-react-app.git
