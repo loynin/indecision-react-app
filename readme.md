@@ -47,11 +47,14 @@ To explore the codebase:
 - from `indecision` run `npm install`
 - from `indecision` run `npm run server`
 
+For here the website is host on the local machine.
+
 ### 4. Tools:
 ---------
+- JavaScript
 - React
 - Babel
-- JavaScript
+- Webpack
 - live-server
 
 ### 5. Improvement:
