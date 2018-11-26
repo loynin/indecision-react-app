@@ -38,7 +38,7 @@ Requirement:
 - Webpack Dev Server
 
 
-Experience the app at https://github.com/loynin/indecision-react-app.git
+Experience the app at http://indecision.loynin.com
 
 To explore the codebase:
 
