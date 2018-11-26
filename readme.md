@@ -16,17 +16,17 @@ Content
 ### 1. Project Description:
 -----------------------
 
-This web app allow user to add task options that he or she could not decision
-which one will the user will do. The job of the Indecision App is to randomly pick
+This web app allow user to add task options that he or she could not decide
+which one will the user going to do. The job of the Indecision App is to randomly pick
 one task from the list and display it to the user.
 
 ### 2. App Functionalities:
 -----------------------------
- 
-- Add tasks to the list
+
+- Add or remove tasks to the list
 - Remove all task from the list
 - Randomly pick the task for the user.
-    
+
 ### 3. How to Run the Project:
 --------------------------
 Requirement:
@@ -47,7 +47,7 @@ To explore the codebase:
 - from `indecision` run `npm install`
 - from `indecision` run `npm run server`
 
-For here the website is host on the local machine.
+From here the website is host on the local machine.
 
 ### 4. Tools:
 ---------

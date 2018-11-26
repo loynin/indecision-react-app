@@ -4,6 +4,7 @@ import Options from './Options';
 import Action from './Action';
 import Header from './Header';
 import OptionModal from './OptionModal';
+import Footer from './Footer';
 
 export default class IndecisionApp extends React.Component{
     constructor (props) {
@@ -117,7 +118,7 @@ export default class IndecisionApp extends React.Component{
                         closeModal = {this.closeModal}
                     />
                 </div>
-                
+                <Footer />
             </div>
         )
     }
